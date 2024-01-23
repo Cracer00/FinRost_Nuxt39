@@ -1,0 +1,127 @@
+@import "bootstrap/scss/bootstrap";
+@import "video.js/dist/video-js.css";
+
+.text-warning {
+  color: #1d83ee;
+}
+
+.text-warning-dark {
+  color: #1d83ee;
+}
+
+.text-error {
+  color: crimson;
+}
+
+.input-main-dark {
+  background-color: #10151a;
+  border-radius: 5px;
+}
+
+.error-highlight .el-input__inner {
+  color: red !important;
+}
+
+.error-highlight {
+  border: 1px solid red !important;
+}
+
+.input-main {
+  background-color: white;
+  border-radius: 5px;
+  border: #555555 1px solid;
+}
+
+.bg-main {
+  color: white;
+  background-color: #1d83ee;
+}
+
+.btn-custom {
+  height: auto;
+  width: auto;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-custom:active {
+  transform: scale(0.98);
+}
+
+.btn-danger {
+  color: white;
+  background-color: #f56c6c;
+  border: #f56c6c 1px solid;
+}
+
+.btn-danger:hover {
+  color: white;
+  background-color: #dc5d5d;
+  border: #dc5d5d 1px solid;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #1d83ee;
+  border: #1d83ee 1px solid;
+}
+
+.border-gray {
+  border-color: #484f56;
+}
+
+.border-gray-light {
+  border-color: #707981;
+}
+
+.btn-primary:hover {
+  color: white;
+  background-color: #34479a;
+  border: #34479a 1px solid;
+}
+
+.btn-main {
+  color: white;
+  background-color: #1d83ee;
+  border: #1d83ee 1px solid;
+}
+
+.btn-main:hover {
+  color: white;
+  background-color: #186cc5;
+  border: #186cc5 1px solid;
+}
+
+.btn-main:active {
+  color: white;
+  background-color: #1d83ee;
+  border: #1d83ee 1px solid;
+}
+
+.bg-global {
+  background-color: #181f25;
+  opacity: 1;
+}
+
+.bg-modal-dark {
+  color: white;
+  background-color: #10151a;
+  opacity: 1;
+}
+
+.bg-main:hover {
+  color: white;
+  background-color: #186cc5;
+}
+
+// Стиль выделенных ячеек таблиц
+.table-selectedItem-light {
+  background-color: #1d83ee;
+  color: white;
+}
+
+.table-selectedItem-dark {
+  background-color: #c8e1ff;
+}
+
