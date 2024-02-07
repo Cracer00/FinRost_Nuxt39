@@ -151,7 +151,7 @@ export default {
 }
 
 .is-active a {
-  color: #13ce66;
+  color: #89bd23;
 }
 .is-active.el-menu-item-group__title {
   background-color: #1d83ee;

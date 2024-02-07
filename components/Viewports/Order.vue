@@ -147,6 +147,15 @@
                 </p>
                 <p class="mb-3"><b>Цена:</b> {{ formatPrice(lot.price) }} ₽</p>
                 <el-button
+                  v-if="lot && lot.sent"
+                  class="btn btn-main d-flex justify-content-center align-items-center"
+                  :loading="isSendingToTelegram"
+                  @click="sendToTelegram(lot)"
+                >
+                  <IconsTelegram class="mr-1" />Отправить в Telegram повторно
+                </el-button>
+                <el-button
+                  v-if="lot && !lot.sent"
                   class="btn btn-main d-flex justify-content-center align-items-center"
                   :loading="isSendingToTelegram"
                   @click="sendToTelegram(lot)"
@@ -437,6 +446,7 @@ export default {
             } // * Если запрос успешно выполнен
             else {
               toast('Лот отправлен в Telegram', 'success')
+              await this.getLot()
             }
           } catch (e) {
             console.error('Cth_Error: ', e)

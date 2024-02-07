@@ -7,15 +7,35 @@
             <div class="light:card dark:card-dark">
               <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
-                  <img src="/public/icons/avatar.svg" alt="" class="rounded-circle" width="150" height="150" style="background-color: #467f81">
+                  <img
+                    src="/public/icons/avatar.svg"
+                    alt=""
+                    class="rounded-circle"
+                    width="150"
+                    height="150"
+                    style="background-color: #467f81"
+                  />
                   <div class="mt-3 text-secondary">
-<!--                    <span class="mr-1 cursor-pointer" @click="user.enabled = !user.enabled" title="Нажмите, чтобы изменить статус">-->
-<!--                      <span v-if="user.enabled" class="badge bg-success">Активен</span>-->
-<!--                      <span v-if="!user.enabled" class="badge bg-dark">Не активен</span>-->
-<!--                    </span>-->
-                    <span class="cursor-pointer" @click="user.blocked = !user.blocked">
-                      <span v-if="user.blocked" class="badge bg-danger" title="Нажмите, чтобы разблокировать пользователя"><IconsLocked/></span>
-                      <span v-if="!user.blocked" class="badge bg-success" title="Нажмите, чтобы заблокировать пользователя"><IconsUnlocked/></span>
+                    <!--                    <span class="mr-1 cursor-pointer" @click="user.enabled = !user.enabled" title="Нажмите, чтобы изменить статус">-->
+                    <!--                      <span v-if="user.enabled" class="badge bg-success">Активен</span>-->
+                    <!--                      <span v-if="!user.enabled" class="badge bg-dark">Не активен</span>-->
+                    <!--                    </span>-->
+                    <span
+                      class="cursor-pointer"
+                      @click="user.blocked = !user.blocked"
+                    >
+                      <span
+                        v-if="user.blocked"
+                        class="badge bg-danger"
+                        title="Нажмите, чтобы разблокировать пользователя"
+                        ><IconsLocked
+                      /></span>
+                      <span
+                        v-if="!user.blocked"
+                        class="badge bg-success"
+                        title="Нажмите, чтобы заблокировать пользователя"
+                        ><IconsUnlocked
+                      /></span>
                     </span>
                     <div class="mb-3"></div>
                     <h4>{{ user.firstName }} {{ user.lastName }}</h4>
@@ -34,17 +54,32 @@
             </div>
             <div class="light:card dark:card-dark mt-3">
               <ul class="list-group list-group-flush">
-                <li class="d-flex justify-content-between align-items-center flex-wrap">
-                  <div v-if="user.telegram" class="w-100 d-flex align-items-center justify-content-center">
-                    <IconsTelegram class="mr-1" style="width: 32px; height: 32px"/>
-                    <input id="Telegram" type="text" v-model="user.telegram" @change="clearBackendErrorClass($event.target)">
+                <li
+                  class="d-flex justify-content-between align-items-center flex-wrap"
+                >
+                  <div
+                    v-if="user.telegram"
+                    class="w-100 d-flex align-items-center justify-content-center"
+                  >
+                    <IconsTelegram
+                      class="mr-1"
+                      style="width: 32px; height: 32px"
+                    />
+                    <input
+                      id="Telegram"
+                      v-model="user.telegram"
+                      type="text"
+                      @change="clearBackendErrorClass($event.target)"
+                    />
                   </div>
                 </li>
               </ul>
             </div>
           </div>
           <div class="col-md-8">
-            <div class="light:card dark:card-dark mb-3 light:text-dark dark:text-white">
+            <div
+              class="light:card dark:card-dark mb-3 light:text-dark dark:text-white"
+            >
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-3">
@@ -53,14 +88,14 @@
                   <div class="col-sm-9 text-secondary">
                     <el-input
                       id="LastName"
-                      type="text"
                       v-model="user.lastName"
+                      type="text"
                       class="w-50"
                       @change="clearBackendErrorClass($event.target)"
                     />
                   </div>
                 </div>
-                <hr>
+                <hr />
                 <div class="row">
                   <div class="col-sm-3">
                     <h6 class="mb-0">Имя</h6>
@@ -68,14 +103,14 @@
                   <div class="col-sm-9 text-secondary">
                     <el-input
                       id="FirstName"
-                      type="text"
                       v-model="user.firstName"
+                      type="text"
                       class="w-50"
                       @change="clearBackendErrorClass($event.target)"
                     />
                   </div>
                 </div>
-                <hr>
+                <hr />
                 <div class="row">
                   <div class="col-sm-3">
                     <h6 class="mb-0">Отчество</h6>
@@ -83,14 +118,14 @@
                   <div class="col-sm-9 text-secondary">
                     <el-input
                       id="Patronymic"
-                      type="text"
                       v-model="user.patronymic"
+                      type="text"
                       class="w-50"
                       @change="clearBackendErrorClass($event.target)"
                     />
                   </div>
                 </div>
-                <hr>
+                <hr />
                 <div class="row">
                   <div class="col-sm-3">
                     <h6 class="mb-0">Email</h6>
@@ -98,14 +133,14 @@
                   <div class="col-sm-9 text-secondary">
                     <el-input
                       id="Email"
-                      type="text"
                       v-model="user.email"
+                      type="text"
                       class="w-50"
                       @change="clearBackendErrorClass($event.target)"
                     />
                   </div>
                 </div>
-                <hr>
+                <hr />
                 <div class="row">
                   <div class="col-sm-3">
                     <h6 class="mb-0">Телефон</h6>
@@ -113,14 +148,14 @@
                   <div class="col-sm-9 text-secondary">
                     <el-input
                       id="NumberPhone"
-                      type="text"
                       v-model="user.numberPhone"
+                      type="text"
                       class="w-50"
                       @change="clearBackendErrorClass($event.target)"
                     />
                   </div>
                 </div>
-                <hr>
+                <hr />
                 <div class="row">
                   <div class="col-sm-3">
                     <h6 class="mb-0">Логин</h6>
@@ -128,14 +163,14 @@
                   <div class="col-sm-9 text-secondary">
                     <el-input
                       id="Login"
-                      type="text"
                       v-model="user.login"
+                      type="text"
                       class="w-50"
                       @change="clearBackendErrorClass($event.target)"
                     />
                   </div>
                 </div>
-                <hr>
+                <hr />
                 <div class="row">
                   <div class="col-sm-3">
                     <h6 class="mb-0">Дата рождения</h6>
@@ -152,11 +187,15 @@
                     />
                   </div>
                 </div>
-                <hr>
+                <hr />
                 <div class="row">
                   <div class="col-sm-12 d-flex justify-content-end">
-                    <button class="btn-custom btn-main d-flex align-items-center" @click.prevent="putUser(user)">
-                      <IconsSaveIcon class="mr-1" />Сохранить</button>
+                    <button
+                      class="btn-custom btn-main d-flex align-items-center"
+                      @click.prevent="putUser(user)"
+                    >
+                      <IconsSaveIcon class="mr-1" />Сохранить
+                    </button>
                   </div>
                 </div>
               </div>
@@ -165,8 +204,7 @@
             <div class="row gutters-sm">
               <div class="col-sm-6 mb-3">
                 <div class="light:card dark:card-dark h-100">
-                  <div class="card-body user-select-none">
-                  </div>
+                  <div class="card-body user-select-none"></div>
                 </div>
               </div>
             </div>
@@ -186,15 +224,18 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
+import { inject, ref } from 'vue'
 import { getUser, putUser } from '~/composables/useFetchUser'
 import IconsTelegram from '~/components/Icons/IconsTelegram.vue'
-import dayjs from 'dayjs'
-import { highlightElementByValidation, clearBackendErrorClass } from '~/utils/backendValidation'
-import { showModal, toast } from "~/utils/alerts";
-import { inject, ref } from "vue";
+import {
+  highlightElementByValidation,
+  clearBackendErrorClass,
+} from '~/utils/backendValidation'
+import { showModal, toast } from '~/utils/alerts'
 
 export default {
-  name: "UserEdit",
+  name: 'UserEdit',
   components: { IconsTelegram },
   props: {
     userId: {
@@ -220,7 +261,7 @@ export default {
   computed: {
     // * Отфильтрованные значения для autocomplete инпута
     filteredPositions() {
-      const searchText = this.user.position.toLowerCase();
+      const searchText = this.user.position.toLowerCase()
       return this.dataPositions.filter((position) =>
         position.value.toLowerCase().includes(searchText)
       )
@@ -301,12 +342,12 @@ export default {
       this.isLoading = false
     },
   },
-};
+}
 </script>
 
 <style scoped>
 .card {
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .card {
@@ -317,8 +358,8 @@ export default {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 0 solid rgba(0,0,0,.125);
-  border-radius: .25rem;
+  border: 0 solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
 }
 
 .card-dark {
@@ -329,8 +370,8 @@ export default {
   word-wrap: break-word;
   background-color: #181f25;
   background-clip: border-box;
-  border: 0 solid rgba(0,0,0,.125);
-  border-radius: .25rem;
+  border: 0 solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
 }
 
 .card-body {
@@ -344,11 +385,13 @@ export default {
   margin-left: -8px;
 }
 
-.gutters-sm>.col, .gutters-sm>[class*=col-] {
+.gutters-sm > .col,
+.gutters-sm > [class*='col-'] {
   padding-right: 8px;
   padding-left: 8px;
 }
-.mb-3, .my-3 {
+.mb-3,
+.my-3 {
   margin-bottom: 1rem !important;
 }
 

@@ -73,7 +73,7 @@
       <el-table-column label="Лот" min-width="15" prop="isLot" sortable>
         <template #default="scope">
           <el-badge v-if="scope.row.isLot"
-            ><IconsHouse style="color: #13ce66"
+            ><IconsHouse style="color: #89bd23"
           /></el-badge>
           <el-badge v-else><IconsHouseNo style="color: #dc5d5d" /></el-badge>
         </template>

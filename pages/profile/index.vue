@@ -26,12 +26,18 @@
                       >{{ user.position }}</span
                       >
                       <span class="dark:text-white">{{ user.email }}</span>
-                      <span class="flex dark:text-white align-items-center">
+                      <span class="flex dark:text-white align-items-center mb-2">
                         <PhoneIcon />
                         <span>
                           {{ user.numberPhone }}
                         </span>
                       </span>
+                      <br/>
+                      <p class="mb-1">Изменить пароль:</p>
+                      <input v-model="user.password" id="Password" name="Password" type="password" style="min-width: 210px;" class="mb-2 border border-gray-900 pr-2 pl-2">
+                      <el-button type="primary" style="min-width: 200px;" :disabled="!(user.password && user.password.length > 0)" @click.prevent="changePassword">
+                        <IconsUserBordered class="mr-2" /> Установить новый пароль
+                      </el-button>
                     </div>
                   </div>
                 </div>
@@ -49,9 +55,10 @@ import PhoneIcon from "~/components/Icons/PhoneIcon.vue";
 </script>
 
 <script>
-import { toast } from 'vue3-toastify'
-import { getUser, getLoggedUserInfo } from '~/composables/useFetchUser'
+import { toast } from "~/utils/alerts";
+import { getUser, getLoggedUserInfo, changePasswordForCurrentUser } from '~/composables/useFetchUser'
 import nuxtStorage from "nuxt-storage";
+import { highlightElementByValidation } from '~/utils/backendValidation'
 
 definePageMeta({
   layout: 'page',
@@ -78,6 +85,38 @@ export default {
     await this.getProfileInfo()
   },
   methods: {
+    async changePassword() {
+      this.isLoading = true
+      if (!this.user.password && this.user.password === '') {
+        toast('Введен некорректный пароль.', 'warn')
+      }
+      try {
+        const res = await changePasswordForCurrentUser(this.user.password)
+        if (res.type !== 'SUCCESS') {
+          // ? Обычная ошибка
+          if (res.type === 'SIMPLE_ERROR') {
+            console.error('Ошибка:', res.message)
+            toast('Ошибка при изменении пароля!', 'warn')
+          }
+          // ? Ошибка валидации. Подсвечиваем нужные поля по их именам в данных с бэка
+          else if (res.type === 'VALIDATION_ERROR') {
+            await highlightElementByValidation(res.errors)
+            console.error('\x1B[36m%s\x1B[0m', res.errors)
+            toast('Проверьте правильно ли заполнены поля!', 'warn')
+          }
+          // ? Неизвестная ошибка
+          else if (res.type === 'UNKNOWN_ERROR') {
+            console.log('\x1B[36m%s\x1B[0m', 'Неизвестная ошибка')
+          }
+        } // * Если запрос успешно выполнен
+        else {
+          toast('Пароль успешно изменен!', 'success')
+        }
+      } catch (e) {
+        console.error('Cth_Error: ', e)
+      }
+      this.isLoading = false
+    },
     async getProfileInfo() {
       this.isLoading = true
       try {

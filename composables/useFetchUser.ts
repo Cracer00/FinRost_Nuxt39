@@ -32,6 +32,16 @@ export async function checkAllLoggedUserNotifications() {
   return res
 }
 
+export async function changePasswordForCurrentUser(newPassword: string) {
+  const res = await fetchData('api/changePassword', {
+    method: 'POST',
+    body: {
+      password: newPassword
+    }
+  })
+  return res
+}
+
 export async function getAllUsers() {
   const res = await fetchData('api/users', {
     method: 'GET',

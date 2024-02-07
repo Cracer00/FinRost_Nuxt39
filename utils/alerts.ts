@@ -4,7 +4,7 @@ import SubElementsModal from '~/components/SubElements/Modal.vue';
 import SubElementsModalWithConfirm from '~/components/SubElements/ModalWithConfirm.vue';
 
 type toastTypes = 'error' | 'warn' | 'info' | 'success'
-type toastSpecialTypes = 'error' | 'warn' | 'info' | 'success' | 'confirmation'
+type toastSpecialTypes = 'error' | 'warn' | 'info' | 'success' | 'confirmation' | 'changePassword'
 
 export function showModal(message: string, type: toastTypes) {
   // @ts-ignore
@@ -70,6 +70,10 @@ export function showModalWithConfirm(
     }
     case 'confirmation': {
       title = 'Подтверждение'
+      break
+    }
+    case 'changePassword': {
+      title = 'Изменение пароля'
       break
     }
   }

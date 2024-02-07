@@ -6,8 +6,8 @@
       <div class="row left-main-menu pl-2">
         <div class="col-md-2 p-4 border-right">
           <!-- Место под боковое меню -->
-          <div class="logo mb-9 text-center">
-            <h3 class="user-select-none">Финрост</h3>
+          <div class="logo flex flex-row mb-9 justify-center align-items-center">
+            <img src="/src/finrost-logo.png" alt="Финрост лого" style="min-width: 110px; max-width: 150px; max-height: 150px; min-height: 110px">
           </div>
           <ul class="nav nav-pills flex-column">
             <LayoutMainMenu />
